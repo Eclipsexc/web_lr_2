@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій профіль</title>
+    <link rel="stylesheet" href="header_footer.css">
+    <link rel="stylesheet" href="my_profile.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main-container">
+        <div class="profile-box">
+            <img src="icons/Default_user.jpg" alt="Фото користувача" class="profile-photo">
+            <h2>Добрий день, <strong>*Користувач*!</strong></h2>
+            <a href="my_startups.html" class="startup-link">● Переглянути мої стартапи</a>
+
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        function loadComponent(id, url) {
+            fetch(url)
+                .then(res => res.text())
+                .then(data => document.getElementById(id).innerHTML = data)
+                .catch(err => console.error(`Помилка завантаження ${url}:`, err));
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadComponent("header-container", "header.html");
+            loadComponent("footer-container", "footer.html");
+        });
+    </script>
+</body>
+</html>
